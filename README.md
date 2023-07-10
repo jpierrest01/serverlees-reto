@@ -10,83 +10,114 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
-# Serverless Framework Node HTTP API on AWS
+### Serverless Node.JS
 
-This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
+- Reto serveless Indra
 
-This template does not include any kind of persistence (database). For more advanced examples, check out the [serverless/examples repository](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
+# Backend Development
 
-## Usage
+![](http://www.accessyexcel.com/wp-content/uploads/2018/03/aws.png)
 
-### Deployment
+![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg)
 
-```
-$ serverless deploy
-```
+> Proyecto realizado como parte del Reto Técnico de Indra
+>  Serverless
 
-After deploying, you should see output similar to:
+### Importante
 
-```bash
-Deploying aws-node-http-api-project to stage dev (us-east-1)
+Existencia de 1 Modelos
 
-✔ Service deployed to stack aws-node-http-api-project-dev (152s)
+- Vehicle (haciendo referencia a los vehículos del API Start War)
 
-endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
-functions:
-  hello: aws-node-http-api-project-dev-hello (1.9 kB)
-```
+### Plugins
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
+Este proyecto se uso Frameworkpara mejorar facilitar el desarollo.
+Listado:
 
-### Invocation
+| Plugin                                 | README                                                                                        |
+| -------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Serverless Framework                     | [https://www.serverless.com/framework/docs/getting-started]                        |
 
-After successful deployment, you can call the created application via HTTP:
 
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-```
+### Initialitation
 
-Which should result in response similar to the following (removed `input` content for brevity):
+This project requires [Node.js](https://nodejs.org/) v16+ to run.
+Install the dependencies and devDependencies.
 
-```json
-{
-  "message": "Go Serverless v2.0! Your function executed successfully!",
-  "input": {
-    ...
-  }
-}
+```sh
+$ npm install -d
 ```
 
-### Local development
+or
 
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
+```sh
+$ npm install --save
 ```
 
-Which should result in response similar to the following:
+## Serverless Framework
 
-```
-{
-  "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
+This project requires [Serverless.js](https://www.serverless.com/) to run.
 
-
-Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
-
-```bash
-serverless plugin install -n serverless-offline
+```sh
+$ npm install serverless -g
 ```
 
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
+### KEYs CONFIGURATION
 
-After installation, you can start local emulation with:
+- Es necesario configurar los KEYS de AWS
 
+```sh
+$ serverless config credentials --provider aws --key YOUR_KEY --secret YOUR_SECRET_KEY
 ```
-serverless offline
+
+### Simulation Execute Lambdas
+
+Para realizar pruebas antes de un DEPLOY, el siguiente comando:
+
+```sh
+serverless deploy
 ```
 
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+Esto levantará el proyecto por default en 'localhost' en el puerto '3000'
+
+### Testing
+
+Testeo con Jest.
+
+Para poder realizar TDD con Jest realizar los siguientes comandos.
+
+Para el modelo Vehicle
+
+```sh
+npm run test
+```
+
+Esto realizará las pruebas unitarias para el modelo Vehicle (haciendo referencia a lo vehículos del API StarWar)
+|Apis| Url |
+|--|--|
+| Vehicles| [https://p7n9a6ya1g.execute-api.us-east-1.amazonaws.com/swapi/vehicles] |
+|Vehicles/{id}|[https://p7n9a6ya1g.execute-api.us-east-1.amazonaws.com/swapi/vehicle/6]|
+
+
+### Testing Usuarios (Api-Solicitada)
+
+Testeo con Jest.
+
+Para poder realizar TDD con Jest realizar los siguientes comandos.
+
+Para el modelo usuarios
+
+```sh
+npm run test
+```
+
+Esto realizará las pruebas unitarias para el modelo usuarios
+|Apis|Metodo| Url |
+|--|--|--|
+| Users --- {"name":  "jeanpierre","age":  "20"}|POST| [https://p7n9a6ya1g.execute-api.us-east-1.amazonaws.com/user] |
+|Users/{id}|GET|[https://p7n9a6ya1g.execute-api.us-east-1.amazonaws.com/user/{id}]|
+
+## License
+
+Developer Software : Jeanpierre Espiritu Q. 
+OPEN SOURCE
