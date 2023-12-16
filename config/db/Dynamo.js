@@ -2,6 +2,7 @@ const AWS = require('aws-sdk');
 
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
+
 const Dynamo = {
     async get(id, TableName) {
         const params = {
