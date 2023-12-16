@@ -9,6 +9,7 @@ test('dynamo tiene una funcion Get y PUT ', () => {
     expect(typeof Dynamo.write).toBe('function');
 });
 
+
 const TableName = 'UserTable';
 const data = { name: 'jeanpierre ST', age: '20' };
 
