@@ -1,6 +1,7 @@
 service: ServerlessReto
 frameworkVersion: '3'
 
+
 provider:
   name: aws
   runtime: nodejs18.x
